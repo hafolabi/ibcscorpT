@@ -14,6 +14,7 @@ import {
   resolveErrorMsg,
   resolveSuccessMsg,
 } from "../../services/serviceUtils/catchErrors";
+import DasboardOverviewTableModal from "../modal/dashboardOverviewTable";
 
 export function DashboardOverViewTable({
   tableData,
@@ -127,8 +128,8 @@ export function DashboardOverViewTable({
         setActionType("");
         setIsPosting(false);
         setOpenModal(false);
-        setTitle('');
-        setBody('');
+        setTitle("");
+        setBody("");
       }
     } catch (error) {
       let { errorMsg } = resolveErrorMsg(error);
@@ -146,6 +147,7 @@ export function DashboardOverViewTable({
     setTitle(selectedItem?.title || "");
     setBody(selectedItem?.body || "");
   }, [selectedItem]);
+
   return (
     <div className="relative overflow-x-auto my-6 rounded-xl border md:block md:w-[99%] w-[100%] bg-white">
       <table className={`text-sm text-left w-full`}>
@@ -170,8 +172,7 @@ export function DashboardOverViewTable({
                 setSortColumn("body");
               }}
             >
-              Description{" "}
-              {(sortOrder === "asc" ? "🔼" : "🔽")}
+              Description {sortOrder === "asc" ? "🔼" : "🔽"}
             </th>
             <th scope="col" className="px-4 !font-medium md:px-6 py-4">
               User ID
@@ -293,91 +294,21 @@ export function DashboardOverViewTable({
         </tbody>
       </table>
 
+      {/* THE MODAL SECTION */}
       <Modals open={openModal} setOpen={setOpenModal}>
-        {/* Modal Header */}
-        <div className="flex justify-between items-cente text-[20px] font-[500] mb-4">
-          {/* {actionType === "edit" ? <p>Edit</p> : <p />} */}
-          {actionType === "edit" ? (
-            <p>Edit</p>
-          ) : actionType === "delete" ? (
-            <p />
-          ) : (
-            <p>Create</p>
-          )}
-          <p onClick={() => {
-            setOpenModal(false);
-            setActionType('');
-            setTitle('');
-            setBody('');
-          }} className=" cursor-pointer">
-            <IoCloseSharp size="20" />
-          </p>
-        </div>
-
-        {/* Modal content */}
-        <div>
-          {actionType !== "delete" ? (
-            <>
-              <div>
-                <p className="my-2 text-[14px]">Name</p>
-                <input
-                  type="text"
-                  value={title}
-                  onChange={(e) => setTitle(e.target.value)}
-                  className=" w-full px-4 py-2 border focus:ring-0 focus-visible:ring-0 focus:outline-none "
-                  placeholder="Name"
-                  disabled={isPosting}
-                />
-              </div>
-
-              <div className="mt-4">
-                <p className="my-2 text-[14px]">Description</p>
-                <input
-                  type="text"
-                  value={body}
-                  disabled={isPosting}
-                  onChange={(e) => setBody(e.target.value)}
-                  className=" w-full px-4 py-2 border focus:ring-0 focus-visible:ring-0 focus:outline-none "
-                  placeholder="Name"
-                />
-              </div>
-            </>
-          ) : (
-            <div className="flex justify-center flex-col items-center">
-              <p className="text-[30px] font-[700]">About to Delete!</p>
-              <p>Are you sure you are ready to delete this record?</p>
-            </div>
-          )}
-
-          <div
-            className={`flex mt-2 ${
-              actionType !== "delete" ? "justify-end" : " justify-center"
-            } `}
-          >
-            {isPosting ? (
-              <button className="border p-2 mt-6 w-[30%] rounded-lg">
-                Please Wait...
-              </button>
-            ) : (
-              <button
-                className="border p-2 mt-6 w-[30%] rounded-lg"
-                onClick={() => {
-                  if (actionType === "delete") {
-                    deletePostHandler();
-                  } else if (actionType === "edit") {
-                    editPostHandler();
-                  } else return createPostHandler();
-                }}
-              >
-                {actionType === "edit"
-                  ? "Edit"
-                  : actionType === "delete"
-                  ? "Delete"
-                  : "Create"}
-              </button>
-            )}
-          </div>
-        </div>
+        <DasboardOverviewTableModal
+          actionType={actionType}
+          setOpenModal={setOpenModal}
+          setBody={setBody}
+          setTitle={setTitle}
+          setActionType={setActionType}
+          title={title}
+          isPosting={isPosting}
+          body={body}
+          deletePostHandler={deletePostHandler}
+          editPostHandler={editPostHandler}
+          createPostHandler={createPostHandler}
+        />
       </Modals>
     </div>
   );

@@ -17,9 +17,9 @@
 contains all the sub components used on the system. e.g modal, table.
 
 # other folders
-the service contains the api configuration and interceptors
+the service contains the api configuration, interceptors and error handling
 
-the utilz contains the helper functions and the typescript interface file
+the utilz contains the helper functions and the typescript interface file and toast setup
 
 the assets folder contains all the assets on the system, like images, gif, icon etc.
 
