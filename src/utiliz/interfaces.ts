@@ -25,4 +25,18 @@ export interface DashOverviewTable {
   handleAddData: (param: DashOverviewTableDataObj)=> void;
 }
 
+export interface DasboardOverviewTableModalProps {
+  actionType: string;
+  setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
+  setActionType: React.Dispatch<React.SetStateAction<string>>;
+  setTitle: React.Dispatch<React.SetStateAction<string>>;
+  setBody: React.Dispatch<React.SetStateAction<string>>;
+  title: string;
+  isPosting: boolean;
+  body: string;
+  deletePostHandler: () => void;
+  editPostHandler: () => void;
+  createPostHandler: () => void;
+}
+
 
