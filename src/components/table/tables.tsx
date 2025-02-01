@@ -28,6 +28,7 @@ export function DashboardOverViewTable({
   setOpenModal,
   openModal,
   handleAddData,
+  handleUpdate,
 }: DashOverviewTable) {
   const [actionType, setActionType] = useState("");
   const [selectedItem, setSelectedItem] =
@@ -83,7 +84,7 @@ export function DashboardOverViewTable({
     };
     try {
       const res: any = await dataService.editPost(selectedItem?.id, data);
-      console.log("res", res);
+      handleUpdate(Number(selectedItem?.id), data)
       if (res) {
         let { successMsg } = resolveSuccessMsg("Record successfully updated!");
         notifyErrorHandler({
@@ -96,7 +97,8 @@ export function DashboardOverViewTable({
         setBody("");
         setIsPosting(false);
         setOpenModal(false);
-        setRefetch(!refetch);
+        // refetch can only be applicable if we are deeling with a live data from a live serve
+        // setRefetch(!refetch);
         setActionType("");
       }
     } catch (error) {

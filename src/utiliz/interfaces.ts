@@ -23,6 +23,7 @@ export interface DashOverviewTable {
   openModal: boolean;
   setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
   handleAddData: (param: DashOverviewTableDataObj)=> void;
+  handleUpdate: (id: number, updatedItem: Partial<DashOverviewTableDataObj>)=> void;
 }
 
 export interface DasboardOverviewTableModalProps {

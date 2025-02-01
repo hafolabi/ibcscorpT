@@ -48,9 +48,18 @@ export const Overview = () => {
     setTableData((prevData) => prevData.filter((item: DashOverviewTableDataObj) => item?.id !== id));
   };
 
-  //to add an item to the table list when create a post
+  //to add an item to the table list when you create a post
   const handleAddData = (newItem: DashOverviewTableDataObj) => {
     setTableData((prevData) => [newItem, ...prevData]);
+  };
+
+  //to update an item from the table list when you edit a post
+  const handleUpdate = (id: number, updatedItem: Partial<DashOverviewTableDataObj>) => {
+    setTableData((prevData) =>
+      prevData.map((item) =>
+        item.id === id ? { ...item, ...updatedItem } : item
+      )
+    );
   };
 
   const getAllPost = useCallback(async () => {
@@ -108,6 +117,7 @@ export const Overview = () => {
           setOpenModal={setOpenModal}
           openModal={openModal}
           handleAddData={handleAddData}
+          handleUpdate={handleUpdate}
         />
 
         <div className="flex justify-center mt-4 space-x-2 my-4">
