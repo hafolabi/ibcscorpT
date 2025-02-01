@@ -1,0 +1,100 @@
+ [{
+     "date":"03/07/2023",
+	 "amount":"891.00 CAD",
+	 "instituition":"Université de Moncton",
+	 "studentName":"Abolaji Qudus",
+	 "paymentType":"Single",
+	 "id":"1",
+	 "status": "Approved"
+
+ },
+ {
+	"date":"03/07/2023",
+	"amount":"891.00 CAD",
+	"instituition":"Université de Moncton",
+	"studentName":"Abolaji Qudus",
+	"paymentType":"Single",
+	"id":"2",
+	"status": "Approved"
+
+},
+{
+	"date":"03/07/2023",
+	"amount":"891.00 CAD",
+	"instituition":"Université de Moncton",
+	"studentName":"Abolaji Qudus",
+	"paymentType":"Single",
+	"id":"3",
+	"status": "Pending"
+
+},
+{
+	"date":"03/07/2023",
+	"amount":"891.00 CAD",
+	"instituition":"Université de Moncton",
+	"studentName":"Abolaji Qudus",
+	"paymentType":"Single",
+	"id":"4",
+	"status": "Approved"
+
+},
+{
+	"date":"03/07/2023",
+	"amount":"891.00 CAD",
+	"instituition":"Université de Moncton",
+	"studentName":"Abolaji Qudus",
+	"paymentType":"Bulk",
+	"id":"5",
+	"status": "Approved"
+
+},
+{
+	"date":"03/07/2023",
+	"amount":"891.00 CAD",
+	"instituition":"Université de Moncton",
+	"studentName":"Abolaji Qudus",
+	"paymentType":"Single",
+	"id":"6",
+	"status": "Cancelled"
+
+},
+{
+	"date":"03/07/2023",
+	"amount":"891.00 CAD",
+	"instituition":"Université de Moncton",
+	"studentName":"Abolaji Qudus",
+	"paymentType":"Single",
+	"id":"7",
+	"status": "Approved"
+
+},
+{
+	"date":"03/07/2023",
+	"amount":"891.00 CAD",
+	"instituition":"Université de Moncton",
+	"studentName":"Abolaji Qudus",
+	"paymentType":"Bulk",
+	"id":"8",
+	"status": "Approved"
+
+},
+{
+	"date":"03/07/2023",
+	"amount":"891.00 CAD",
+	"instituition":"Université de Moncton",
+	"studentName":"Abolaji Qudus",
+	"paymentType":"Single",
+	"id":"9",
+	"status": "Pending"
+
+},
+{
+	"date":"03/07/2023",
+	"amount":"891.00 CAD",
+	"instituition":"Université de Moncton",
+	"studentName":"Abolaji Qudus",
+	"paymentType":"Single",
+	"id":"10",
+	"status": "Cancelled"
+
+}]
